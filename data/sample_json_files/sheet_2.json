@@ -1,0 +1,50 @@
+[
+    {
+        "id": "doc2.001",
+        "text": "Shinya Yamanaka is a Japanese stem cell researcher and a Nobel Prize laureate.",
+        "tokens": [
+            {
+                "surface": "Shinya"
+            },
+            {
+                "surface": "Yamanaka"
+            },
+            {
+                "surface": "is"
+            },
+            {
+                "surface": "a"
+            },
+            {
+                "surface": "Japanese"
+            },
+            {
+                "surface": "stem"
+            },
+            {
+                "surface": "cell"
+            },
+            {
+                "surface": "researcher"
+            },
+            {
+                "surface": "and"
+            },
+            {
+                "surface": "a"
+            },
+            {
+                "surface": "Nobel"
+            },
+            {
+                "surface": "Prize"
+            },
+            {
+                "surface": "laureate"
+            },
+            {
+                "surface": "."
+            }
+        ]
+    }
+]

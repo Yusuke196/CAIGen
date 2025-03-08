@@ -1,0 +1,98 @@
+[
+    {
+        "id": "doc1.001",
+        "text": "ACL stands for Association for Computational Linguistics.",
+        "tokens": [
+            {
+                "surface": "ACL"
+            },
+            {
+                "surface": "stands"
+            },
+            {
+                "surface": "for"
+            },
+            {
+                "surface": "Association"
+            },
+            {
+                "surface": "for"
+            },
+            {
+                "surface": "Computational"
+            },
+            {
+                "surface": "Linguistics"
+            },
+            {
+                "surface": "."
+            }
+        ]
+    },
+    {
+        "id": "doc1.002",
+        "text": "A neural network is a model inspired by the structure and function of biological neural networks in animal brains.",
+        "tokens": [
+            {
+                "surface": "A"
+            },
+            {
+                "surface": "neural"
+            },
+            {
+                "surface": "network"
+            },
+            {
+                "surface": "is"
+            },
+            {
+                "surface": "a"
+            },
+            {
+                "surface": "model"
+            },
+            {
+                "surface": "inspired"
+            },
+            {
+                "surface": "by"
+            },
+            {
+                "surface": "the"
+            },
+            {
+                "surface": "structure"
+            },
+            {
+                "surface": "and"
+            },
+            {
+                "surface": "function"
+            },
+            {
+                "surface": "of"
+            },
+            {
+                "surface": "biological"
+            },
+            {
+                "surface": "neural"
+            },
+            {
+                "surface": "networks"
+            },
+            {
+                "surface": "in"
+            },
+            {
+                "surface": "animal"
+            },
+            {
+                "surface": "brains"
+            },
+            {
+                "surface": "."
+            }
+       ]
+    }
+]

@@ -1,0 +1,11 @@
+# JavaScript
+package.json
+package-lock.json
+node_modules/
+eslint.config.mjs
+# Clasp
+.clasp.json
+appsscript.json
+# Python
+__pycache__
+venv/
