@@ -1,21 +1,23 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-This repository presents CAIGen: Checkbox-based Annotation Interface Generator.
+This repository presents CAIGen, an accessible, flexible, and free annotation tool.
+
+![Interface](img/interface.png)
 
 # Why CAIGen
 
 CAIGen can be used for the annotation of any sequence tagging tasks in natural language processing. Its advantages include:
 
-- Flexible annotation: The interface supports annotations of spans of any form, including discontinuous or overlapping spans.
-- Accessible interface: The interface is based on spreadsheets, which are familiar and accessible even for non-technical annotators.
-- Easy collaboration: It reduces researchers' overhead of managing servers and annotator accounts by leveraging Google services.
-- Customizable interface: You can easily customize CAIGen's interfaces by modifying the Google Apps Script code, an accessible JavaScript-based language.
+- **Accessible interface**: The interface is based on spreadsheets, which are familiar and accessible to both technical and non-technical annotators.
+- **Flexible annotation**: The interface supports annotations of spans of any form, including discontinuous and overlapping spans.
+- **Easy collaboration**: It reduces researchers' overhead of managing servers and annotator accounts by leveraging Google services.
+- **Customizable interface**: You can easily customize CAIGen's interface by modifying the Google Apps Script code, a well-documented JavaScript-based language.
 
 # What CAIGen does
 
 It generates one Google Sheets file per annotator. Each file contains a facesheet to collect demographic information about the annotator and an arbitrary number of sheets for annotation.
 
-To try an example of the interface, access https://docs.google.com/spreadsheets/d/1ngnVTGxCb-Kf91fhgc1h9YLtdVA58LZtQsPHmB3zQrY/copy, where you can copy the file to your Google account.
+To try an example of the interface, access https://docs.google.com/spreadsheets/d/1ngnVTGxCb-Kf91fhgc1h9YLtdVA58LZtQsPHmB3zQrY/copy, where you can copy the file to your Google account and play around.
 
 # How to use
 
@@ -27,7 +29,8 @@ Prepare JSON files, each containing a list of objects with the properties `id` a
 <!-- In JavaScript terminology, "list" is "array". But probably the users of CAIGen are more familiar with Python terminology. -->
 
 ```
-[   {
+[
+    {
         "id": "doc1.001",
         "tokens": [
             {
@@ -41,7 +44,8 @@ Prepare JSON files, each containing a list of objects with the properties `id` a
             },
             ...
         ]
-    }
+    },
+    ...
 ]
 ```
 
@@ -112,13 +116,13 @@ Note that this script can take a long time to complete. The progress log will be
 
 When the process is complete, the sheets are ready to be annotated.
 
-## After annotation
+## Convert annotated data into JSONL
 
 Download the annotated spreadsheets as Excel files and place them in the `post_ann` directory.
 
 To reformat the Excel files into JSON files, follow the steps below.
 
-1. Create a virtual environment and run `pip install -r requirements.txt`.
+1. Create a virtual Python environment and run `pip install -r requirements.txt`.
 1. Run `PYTHONPATH=. python convert_excel.py`. You may use the `append_span_info_to` argument to control the format of span information in the output.
 
 # How to cite
