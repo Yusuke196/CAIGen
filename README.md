@@ -75,15 +75,15 @@ Upload the `data` folder to Google Drive. Optionally, you can rename it.
 To run CAIGen, you need a GAS file on Google Drive. Although there are several ways to create one, we recommend using Clasp. To do so, follow the steps below.
 
 1. Install node if you don't have it already - we recommend [nvm](https://github.com/nvm-sh/nvm) for this.
-2. Enable the [Google App Scripts API](https://script.google.com/home/usersettings). This is required for CAIGen to work. 
-2. Follow the instructions in the [official repository](https://github.com/google/clasp) to install Clasp.
-3. Run `clasp login` to log into your Google account.
+2. Enable the [Google App Scripts API](https://script.google.com/home/usersettings). This is required for CAIGen to work.
+3. Follow the instructions in the [official repository](https://github.com/google/clasp) to install Clasp.
+4. Run `clasp login` to log into your Google account.
 
 ## Upload codes
 
 Clone this repository and navigate to the root directory.
 
-Run `clasp create --title "caigen" --type standalone` to create a GAS file. If the GAS file creation is successful, the URL of the script will be printed. Save this URL, as you'll need it for the next steps. 
+Run `clasp create --title "caigen" --type standalone` to create a GAS file. If the GAS file creation is successful, the URL of the script will be printed. Save this URL, as you'll need it for the next steps.
 
 Run `clasp push` to upload the JavaScript files in the repository.
 
@@ -97,14 +97,14 @@ Open `CreateFiles.gs`.
 
 Update the following variables:
 
-- `annttrToSourceFiles`: A mapping from annotator IDs to source file names. The annotator IDs will be the names of the output Google Sheets (GS) files. The source file names will be the names of the sheets in each file, minus the trailing `.json`. You can also leave this as `["sheet_1.json", "sheet_2.json"]` for testing purposes. 
-- `projectFolderId`: The string after `drive.google.com/drive/folders/` in the URL of the `data` folder on Google Drive. Should look something like `1Mx2_dtoEuT3gPAgOlN8qS5H8-EGQFyh9`
+- `annttrToSourceFiles`: A mapping from annotator IDs to source file names. The annotator IDs will be the names of the output Google Sheets (GS) files. The source file names will be the names of the sheets in each file, minus the trailing `.json`. You can also leave this as `["sheet_1.json", "sheet_2.json"]` for testing purposes.
+- `projectFolderId`: The string after `drive.google.com/drive/folders/` in the URL of the `data` folder on Google Drive. It should look something like `1Mx2_dtoEuT3gPAgOlN8qS5H8-EGQFyh9`.
 
 If you wish to test the code using sample data, you can optionally set `dataFolderName` to `'sample_json_files'`.
 
 Run the code by pressing the "Run" button. You will need to grant access to the script the first time you run it. Proceed with: Review Permissions > Advanced > Go to annotation (unsafe) > Select all > Continue.
 
-Visit the printed URL to ensure that a GS file is created. Note that it will be empty (no data yet), but this is normal. 
+Visit the printed URL to ensure that a GS file is created. Note that it will be empty (no data yet), but this is normal.
 
 ### Fill the sheets with data
 
