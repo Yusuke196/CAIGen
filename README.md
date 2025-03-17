@@ -8,9 +8,9 @@ This repository presents CAIGen, an accessible, flexible, and free annotation to
 
 CAIGen can be used for the annotation of any sequence tagging tasks in natural language processing. Its advantages include:
 
-- **Accessible interface**: The interface is based on spreadsheets, which are familiar and accessible to both technical and non-technical annotators.
 - **Flexible annotation**: The interface supports annotations of spans of any form, including discontinuous and overlapping spans.
-- **Easy collaboration**: It reduces researchers' overhead of managing servers and annotator accounts by leveraging Google services.
+- **Easy setup**: It minimizes researchers' overhead of managing servers and annotator accounts by leveraging Google services.
+- **Easy-to-use interface**: The interface is based on spreadsheets, which are familiar to both technical and non-technical annotators.
 - **Customizable interface**: You can easily customize CAIGen's interface by modifying the Google Apps Script code, a well-documented JavaScript-based language.
 
 # What CAIGen does
