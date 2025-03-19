@@ -8,9 +8,9 @@ This repository presents CAIGen, an accessible, flexible, and free annotation to
 
 CAIGen can be used for the annotation of any sequence tagging tasks in natural language processing. Its advantages include:
 
-- **Accessible interface**: The interface is based on spreadsheets, which are familiar and accessible to both technical and non-technical annotators.
 - **Flexible annotation**: The interface supports annotations of spans of any form, including discontinuous and overlapping spans.
-- **Easy collaboration**: It reduces researchers' overhead of managing servers and annotator accounts by leveraging Google services.
+- **Easy setup**: It minimizes researchers' overhead of managing servers and annotator accounts by leveraging Google services.
+- **Easy-to-use interface**: The interface is based on spreadsheets, which are familiar to both technical and non-technical annotators.
 - **Customizable interface**: You can easily customize CAIGen's interface by modifying the Google Apps Script code, a well-documented JavaScript-based language.
 
 # What CAIGen does
@@ -64,7 +64,7 @@ Prepare JSON files, each containing a list of objects with the properties `id` a
     ...
 ``` -->
 
-Place the JSON files in the `data/json_files` directory.
+Place the JSON files in the `data/json_files` directory. Examples can be seen in `data/sample_json_files`.
 
 ## Upload data
 
@@ -74,14 +74,16 @@ Upload the `data` folder to Google Drive. Optionally, you can rename it.
 
 To run CAIGen, you need a GAS file on Google Drive. Although there are several ways to create one, we recommend using Clasp. To do so, follow the steps below.
 
-1. Follow the instructions in the [official repository](https://github.com/google/clasp) to install Clasp.
-1. Run `clasp login` to log into your Google account.
+1. Install node if you don't have it already - we recommend [nvm](https://github.com/nvm-sh/nvm) for this.
+2. Enable the [Google App Scripts API](https://script.google.com/home/usersettings). This is required for CAIGen to work.
+3. Follow the instructions in the [official repository](https://github.com/google/clasp) to install Clasp.
+4. Run `clasp login` to log into your Google account.
 
 ## Upload codes
 
 Clone this repository and navigate to the root directory.
 
-Run `clasp create --title "caigen" --type standalone` to create a GAS file. If the GAS file creation is successful, the URL of the script will be printed.
+Run `clasp create --title "caigen" --type standalone` to create a GAS file. If the GAS file creation is successful, the URL of the script will be printed. Save this URL, as you'll need it for the next steps.
 
 Run `clasp push` to upload the JavaScript files in the repository.
 
@@ -95,20 +97,20 @@ Open `CreateFiles.gs`.
 
 Update the following variables:
 
-- `annttrToSourceFiles`: A mapping from annotator IDs to source file names. The annotator IDs will be the names of the output Google Sheets (GS) files. The source file names will be the names of the sheets in each file, after `.json` being truncated.
-- `projectFolderId`: The string after `drive.google.com/drive/folders/` in the URL of the `data` folder on Google Drive.
+- `annttrToSourceFiles`: A mapping from annotator IDs to source file names. The annotator IDs will be the names of the output Google Sheets (GS) files. The source file names will be the names of the sheets in each file, minus the trailing `.json`. You can also leave this as `["sheet_1.json", "sheet_2.json"]` for testing purposes.
+- `projectFolderId`: The string after `drive.google.com/drive/folders/` in the URL of the `data` folder on Google Drive. It should look something like `1Mx2_dtoEuT3gPAgOlN8qS5H8-EGQFyh9`.
 
 If you wish to test the code using sample data, you can optionally set `dataFolderName` to `'sample_json_files'`.
 
 Run the code by pressing the "Run" button. You will need to grant access to the script the first time you run it. Proceed with: Review Permissions > Advanced > Go to annotation (unsafe) > Select all > Continue.
 
-Visit the printed URL to ensure that a GS file is created.
+Visit the printed URL to ensure that a GS file is created. Note that it will be empty (no data yet), but this is normal.
 
 ### Fill the sheets with data
 
 Open `WriteSheets.gs`.
 
-Set `annttr` to the annotator ID. Note that CAIGen currently writes one GS file at a time to keep the process simple. This approach minimizes the risk of the process stopping midway due to longer processing times.
+Set `annttr` to the annotator ID (the same ID used as a key in the `annttrToSourceFiles` dictionary from `CreateFiles.gs`). Note that CAIGen currently writes one GS file at a time to keep the process simple. This approach minimizes the risk of the process stopping midway due to longer processing times.
 
 Run the code by pressing the "Run" button.
 
@@ -118,12 +120,12 @@ When the process is complete, the sheets are ready to be annotated.
 
 ## Convert annotated data into JSONL
 
-Download the annotated spreadsheets as Excel files and place them in the `post_ann` directory.
+Download the annotated spreadsheets as Excel files and place them in the `annotated` directory.
 
 To reformat the Excel files into JSON files, follow the steps below.
 
 1. Create a virtual Python environment and run `pip install -r requirements.txt`.
-1. Run `PYTHONPATH=. python convert_excel.py`. You may use the `append_span_info_to` argument to control the format of span information in the output.
+1. Run `PYTHONPATH=. python convert_excel.py`. If you used the sample folder/files `sample_json_files`, you will need to specify `-p data/sample_json_files` when you run the conversion script.  You may use the `append_span_info_to` argument to control the format of span information in the output.
 
 # How to cite
 
