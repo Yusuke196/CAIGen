@@ -72,7 +72,7 @@ Upload the `data` folder to Google Drive. Optionally, you can rename it.
 
 ## Copy GAS codes to your account
 
-Access [this link](https://script.google.com/home/projects/1y9j68famyacV4WilLUmr08sUP9TzBXiJicsca7jDnVw2yEfFcmHUuUC9/edit) and proceed with: Overview ("i" mark on the left) > Make a copy. This will create a copy in the root folder of your Google Drive account.
+Access [this GAS file](https://script.google.com/home/projects/1y9j68famyacV4WilLUmr08sUP9TzBXiJicsca7jDnVw2yEfFcmHUuUC9/edit), which contains the GAS codes in this repository. Proceed with: Overview (the "i" icon on the left) > Make a copy. This will create a copy in the root folder of your Google Drive account.
 
 Alternatively, you can upload GAS codes using Clasp. This allows you to edit codes locally and manage changes with Git. See "Appendix: How to upload GAS codes using Clasp" for details.
 
