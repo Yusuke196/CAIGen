@@ -2,7 +2,10 @@
 
 This repository presents CAIGen, an accessible, flexible, and free annotation tool.
 
-![Interface](img/interface.png)
+<!-- ![Interface](img/interface.png) -->
+<!-- See [this gif](img/interface.gif) for quick demonstration. -->
+
+<img src="img/interface.gif" width="640">
 
 # Why CAIGen
 
@@ -17,7 +20,7 @@ CAIGen can be used for the annotation of any sequence tagging tasks in natural l
 
 It generates one Google Sheets file per annotator. Each file contains a facesheet to collect demographic information about the annotator and an arbitrary number of sheets for annotation.
 
-To try an example of the interface, access https://docs.google.com/spreadsheets/d/1ngnVTGxCb-Kf91fhgc1h9YLtdVA58LZtQsPHmB3zQrY/copy, where you can copy the file to your Google account and play around.
+To try an example of the interface, access [this link](https://docs.google.com/spreadsheets/d/1ngnVTGxCb-Kf91fhgc1h9YLtdVA58LZtQsPHmB3zQrY/copy), where you can copy the file to your Google account and play around.
 
 # How to use
 
@@ -70,24 +73,11 @@ Place the JSON files in the `data/json_files` directory. Examples can be seen in
 
 Upload the `data` folder to Google Drive. Optionally, you can rename it.
 
-## Set up Clasp
+## Copy GAS codes to your account
 
-To run CAIGen, you need a GAS file on Google Drive. Although there are several ways to create one, we recommend using Clasp. To do so, follow the steps below.
+Access [this GAS file](https://script.google.com/home/projects/1y9j68famyacV4WilLUmr08sUP9TzBXiJicsca7jDnVw2yEfFcmHUuUC9/edit), which contains the GAS codes in this repository. Proceed with: Overview (the "i" icon on the left) > Make a copy. This will create a copy in the root folder of your Google Drive account.
 
-1. Install node if you don't have it already - we recommend [nvm](https://github.com/nvm-sh/nvm) for this.
-2. Enable the [Google App Scripts API](https://script.google.com/home/usersettings). This is required for CAIGen to work.
-3. Follow the instructions in the [official repository](https://github.com/google/clasp) to install Clasp.
-4. Run `clasp login` to log into your Google account.
-
-## Upload codes
-
-Clone this repository and navigate to the root directory.
-
-Run `clasp create --title "caigen" --type standalone` to create a GAS file. If the GAS file creation is successful, the URL of the script will be printed. Save this URL, as you'll need it for the next steps.
-
-Run `clasp push` to upload the JavaScript files in the repository.
-
-Visit the script URL to ensure that a GAS script file containing several `.gs` files is created.
+Alternatively, you can upload GAS codes using Clasp. This allows you to edit codes locally and manage changes with Git. See "Appendix: How to upload GAS codes using Clasp" for details.
 
 ## Run the code after slight modifications
 
@@ -112,9 +102,7 @@ Open `WriteSheets.gs`.
 
 Set `annttr` to the annotator ID (the same ID used as a key in the `annttrToSourceFiles` dictionary from `CreateFiles.gs`). Note that CAIGen currently writes one GS file at a time to keep the process simple. This approach minimizes the risk of the process stopping midway due to longer processing times.
 
-Run the code by pressing the "Run" button.
-
-Note that this script can take a long time to complete. The progress log will be written at line 101 and below on the facesheet.
+Run the code by pressing the "Run" button. Note that this script can take a long time to complete. The progress log will be written at line 101 and below on the facesheet.
 
 When the process is complete, the sheets are ready to be annotated.
 
@@ -127,9 +115,26 @@ To reformat the Excel files into JSON files, follow the steps below.
 1. Create a virtual Python environment and run `pip install -r requirements.txt`.
 1. Run `PYTHONPATH=. python convert_excel.py`. If you used the sample folder/files `sample_json_files`, you will need to specify `-p data/sample_json_files` when you run the conversion script.  You may use the `append_span_info_to` argument to control the format of span information in the output.
 
-# How to cite
+## Appendix: How to upload GAS codes using Clasp
 
-Please consider citing our paper when you use CAIGen for your research.
+You can use Clasp to upload the codes as a GAS file onto Google Drive. To do so, follow the steps below.
+
+1. Install node.js if you don't have it already (we recommend [nvm](https://github.com/nvm-sh/nvm) for this).
+2. Enable the [Google App Scripts API](https://script.google.com/home/usersettings). This is required for CAIGen to work.
+3. Follow the instructions in the [official repository](https://github.com/google/clasp) to install Clasp.
+4. Run `clasp login` to log into your Google account.
+
+Clone this repository and navigate to the root directory.
+
+Run `clasp create --title "caigen" --type standalone` to create a GAS file. If the GAS file creation is successful, the URL of the script will be printed. Save this URL, as you'll need it for the next steps.
+
+Run `clasp push` to upload the JavaScript files in the repository.
+
+Visit the script URL to ensure that a GAS script file containing several `.gs` files is created.
+
+# Cite
+
+Please consider citing our paper when you use CAIGen.
 
 ```
 @misc{ide2024coam,

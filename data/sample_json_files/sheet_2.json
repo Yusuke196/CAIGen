@@ -1,6 +1,33 @@
 [
     {
         "id": "doc2.001",
+        "text": "Pick me up at the station.",
+        "tokens": [
+            {
+                "surface": "Pick"
+            },
+            {
+                "surface": "me"
+            },
+            {
+                "surface": "up"
+            },
+            {
+                "surface": "at"
+            },
+            {
+                "surface": "the"
+            },
+            {
+                "surface": "station"
+            },
+            {
+                "surface": "."
+            }
+        ]
+    },
+    {
+        "id": "doc2.002",
         "text": "Shinya Yamanaka is a Japanese stem cell researcher and a Nobel Prize laureate.",
         "tokens": [
             {
