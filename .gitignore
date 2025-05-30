@@ -9,3 +9,5 @@ appsscript.json
 # Python
 __pycache__
 venv/
+# Videos
+*.mp4

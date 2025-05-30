@@ -2,7 +2,10 @@
 
 This repository presents CAIGen, an accessible, flexible, and free annotation tool.
 
-![Interface](img/interface.png)
+<!-- ![Interface](img/interface.png) -->
+<!-- See [this gif](img/interface.gif) for quick demonstration. -->
+
+<img src="img/interface.gif" width="640">
 
 # Why CAIGen
 
@@ -129,9 +132,9 @@ Run `clasp push` to upload the JavaScript files in the repository.
 
 Visit the script URL to ensure that a GAS script file containing several `.gs` files is created.
 
-# How to cite
+# Cite
 
-Please consider citing our paper when you use CAIGen for your research.
+Please consider citing our paper when you use CAIGen.
 
 ```
 @misc{ide2024coam,
