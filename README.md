@@ -134,7 +134,7 @@ Visit the script URL to ensure that a GAS script file containing several `.gs` f
 
 # Cite
 
-Please consider citing our paper when you use CAIGen.
+If you use CAIGen, please consider citing our paper presented at ACL 2025.
 
 ```
 @misc{ide2024coam,
